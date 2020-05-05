@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 
 public class ServiceGroup {
-    @XmlElement
-    private Service serv;
+    @XmlElement(name = "serv")
+    private Service service;
 
-    public Service getServ() {
-        return serv;
+    public Service getService() {
+        return service;
     }
 }

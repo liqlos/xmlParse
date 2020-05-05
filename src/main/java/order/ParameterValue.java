@@ -17,6 +17,6 @@ public class ParameterValue implements Comparable<ParameterValue> {
 
     @Override
     public String toString() {
-        return "value='" + value;
+        return value;
     }
 }

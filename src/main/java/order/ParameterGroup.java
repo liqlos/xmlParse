@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 
 public class ParameterGroup {
-    @XmlElement
-    private ArrayList <Parameter> par;
+    @XmlElement(name = "par")
+    private ArrayList <Parameter> parameters;
 
-    public ArrayList<Parameter> getPar() {
-        return par;
+    public ArrayList<Parameter> getParameters() {
+        return parameters;
     }
 }

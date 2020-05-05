@@ -21,7 +21,7 @@ public class Service {
     private int corrSchet;
 
     @XmlElement(name = "pars")
-    private ParameterGroup pars;
+    private ParameterGroup parameterGroup;
 
     @XmlElement(name = "sys_message")
     private String sysMessage;
@@ -46,8 +46,8 @@ public class Service {
         return corrSchet;
     }
 
-    public ParameterGroup getPars() {
-        return pars;
+    public ParameterGroup getParameterGroup() {
+        return parameterGroup;
     }
 
     public String getSysMessage() {

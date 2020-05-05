@@ -12,29 +12,13 @@ class OrderUnmarshallingTest {
     private final String orderXmlPath = "src\\main\\resources\\order.xml";
 
     @Test
-    public void testUnMarshallUsingJAXB() throws Exception {
-        JAXBContext jc = JAXBContext.newInstance(Order.class);
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        Order order = (Order) unmarshaller.unmarshal(new File(orderXmlPath));
-        List<Parameter> orderParameters = order.getServices().getServ().getPars().getPar();
-
-        //all attributes for "step=\"1\"" name="ГРАЖДАНСТВО"
-        orderParameters.stream().filter(p -> p.getName().contains("ГРАЖДАНСТВО")).forEach(p -> System.out.println(p));
-
-        //Getting all "<par_list" elements for "ВИД_ДОК" parameter
-        orderParameters.stream().filter(p -> p.getName().contains("ВИД_ДОК")).forEach(p -> System.out.println(p.getParameterValues().toString()));
-    }
-
-
-    @Test
     @DisplayName("Right parameters count")
     public void rightParametersCount() throws Exception {
         JAXBContext jc = JAXBContext.newInstance(Order.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         Order order = (Order) unmarshaller.unmarshal(new File(orderXmlPath));
-        List<Parameter> orderParameters = order.getServices().getServ().getPars().getPar();
+        List<Parameter> orderParameters = order.getServices().getService().getParameterGroup().getParameters();
         Assertions.assertEquals(5, orderParameters.size());
-
     }
 
 }
